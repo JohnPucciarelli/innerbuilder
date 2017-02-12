@@ -28,7 +28,7 @@ public final class InnerBuilderOptionSelector {
                         .build());
         options.add(
                 SelectorOption.newBuilder()
-                        .withCaption("Generate static newBuilder() method")
+                        .withCaption("Generate static builder() method")
                         .withMnemonic('n')
                         .withOption(InnerBuilderOption.NEW_BUILDER_METHOD)
                         .build());

@@ -24,6 +24,8 @@ public class InnerBuilderGenerator implements Runnable {
     @NonNls
     private static final String BUILDER_CLASS_NAME = "Builder";
     @NonNls
+    private static final String BUILDER_METHOD_NAME = "builder";
+    @NonNls
     private static final String BUILDER_SETTER_DEFAULT_PARAMETER_NAME = "val";
     @NonNls
     private static final String BUILDER_SETTER_ALTERNATIVE_PARAMETER_NAME = "value";
@@ -119,7 +121,7 @@ public class InnerBuilderGenerator implements Runnable {
     private PsiMethod generateCopyBuilderMethod(final PsiClass targetClass, final PsiType builderType,
                                                 final Collection<PsiFieldMember> fields,
                                                 final Set<InnerBuilderOption> options) {
-        final PsiMethod copyBuilderMethod = psiElementFactory.createMethod("newBuilder", builderType);
+        final PsiMethod copyBuilderMethod = psiElementFactory.createMethod(BUILDER_METHOD_NAME, builderType);
         PsiUtil.setModifierProperty(copyBuilderMethod, PsiModifier.STATIC, true);
         PsiUtil.setModifierProperty(copyBuilderMethod, PsiModifier.PUBLIC, true);
 
@@ -245,7 +247,7 @@ public class InnerBuilderGenerator implements Runnable {
 
     private PsiMethod generateNewBuilderMethod(final PsiType builderType, final Collection<PsiFieldMember> finalFields,
                                                final Set<InnerBuilderOption> options) {
-        final PsiMethod newBuilderMethod = psiElementFactory.createMethod("newBuilder", builderType);
+        final PsiMethod newBuilderMethod = psiElementFactory.createMethod(BUILDER_METHOD_NAME, builderType);
         PsiUtil.setModifierProperty(newBuilderMethod, PsiModifier.STATIC, true);
         PsiUtil.setModifierProperty(newBuilderMethod, PsiModifier.PUBLIC, true);
 
